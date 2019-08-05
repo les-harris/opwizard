@@ -1,0 +1,164 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>MediaWall&reg; V Output Wizard</title>
+<link href="styles/smart_wizard.css" rel="stylesheet" type="text/css" />
+
+<script src="js/jquery.min.js"></script>
+<script src="js/jquery.smartWizard.js"></script>
+<script src="js/outputWizard.js"></script>
+<script src="js/outputWizard.strs"></script>
+
+<script>
+    $(document).ready(function(){
+    	// Initialize Smart Wizard 	
+  		$('#wizard').smartWizard({
+        // Override default Properties
+        noForwardJumping: true,
+        keyNavigation: false,        
+        // Override default Events
+        labelStartOver:StrGet(strs, 'startOver'),
+        labelNext: StrGet(strs, 'next'),
+        labelPrevious: StrGet(strs, 'prev'),
+        labelFinish: StrGet(strs, 'finish'),
+      	});
+		$('#slot2').show();          
+		$('#slot3').hide();                    
+		$('#slot4').hide()                            
+  	});        
+</script>
+
+</head>
+
+<body>
+
+<div class="image-holder"></div>
+
+<div class="demoHead">
+  <h1><script>StrPrint(strs, "opwiz")</script></h1>
+</div>
+<div style="clear:both;"></div>
+
+<form id="systemInfo">
+    
+<table align="center" border="0" cellpadding="0" cellspacing="0">
+    <tr><td> 
+<!-- Smart Wizard -->
+  		<div id="wizard" class="swMain">
+  			<ul>
+  				<li><a href="#step-1">
+                <label class="stepNumber">1</label>
+                <span id="stepDesc1" class="stepDesc">
+                   <script>StrPrint(strs, "selectModel")</script>
+                </span>
+            </a></li>
+  				<li><a href="#step-2">
+                <label class="stepNumber">2</label>
+                <span id="stepDesc2" class="stepDesc">
+                   <script>StrPrint(strs, "selectOptm")</script>
+                </span>
+            </a></li>
+  				<li><a href="#step-3">
+                <label class="stepNumber">3</label>
+                <span id="stepDesc3" class="stepDesc">
+                   <script>StrPrint(strs, "soms")</script>
+                </span>                   
+             </a></li>
+  				<li><a href="#step-4">
+                <label class="stepNumber">4</label>
+                <span id="stepDesc4" class="stepDesc">
+                   <script>StrPrint(strs, "xoms")</script>
+                </span>                   
+            </a></li>
+  				<li><a href="#step-5">
+                <label class="stepNumber">5</label>
+                <span id="stepDesc5" class="stepDesc">
+                   <script>StrPrint(strs, "selectLayout")</script>
+                </span>                   
+            </a></li>
+  			</ul>
+  			<div id="step-1">	
+            <h2 class="StepTitle"><script>StrPrint(strs, "modelNum")</script></h2>
+              <p><INPUT TYPE="radio" VALUE="500" name="modelNumber" id="500" checked="checked" onClick="somSelectorRemoveOptions();hideSlots3and4selectors()"><script>StrPrint(strs, "mod500")</script></p>
+              <p><INPUT TYPE="radio" VALUE="550" name="modelNumber" id="550" onClick="somSelectorAddOptions();showAllSlotSelectors()"><script>StrPrint(strs, "mod550")</script>
+              </p>
+            <div class="contentFooter">
+            <p><script>StrPrint(strs, "clickNextToContinue")</script></p>
+            </div>          			
+        </div>
+  			<div id="step-2">
+            <h2 class="StepTitle"><script>StrPrint(strs, "optm")</script></h2>
+            <p>
+            <select id="optm" onChange="filterCardTypes()">
+              <option selected value="2K/HD">2K/HD</option>
+              <option value="4K/UHD @ 30Hz">4K/UHD @ 30Hz</option>
+              <option value="4K/UHD @ 60Hz">4K/UHD @ 60Hz</option>
+            </select>
+            </p>
+            <div class="contentFooter">
+            <p><script>StrPrint(strs, "clickNextToContinue")</script></p>
+            <p><script>StrPrint(strs, "clickPrevToMakeChanges")</script></p>
+            </div>          			
+        </div>                      
+  			<div id="step-3">
+            <h2 class="StepTitle"><script>StrPrint(strs, "howManySoms")</script></h2>	
+            <p><script>StrPrint(strs, "selectSoms")</script></p>
+            <ul>
+            <li><script>StrPrint(strs, "step3Example1")</script></li>
+            <li><script>StrPrint(strs, "step3Example2")</script></li>
+            </ul>
+            <p>
+            <select id="somCount" onChange="adjustWallOutputCount()">
+            <option id="noSoms" selected value=0>0</option>
+            <option id="oneSom" value=1>1</option>
+            </select></p>
+            <div class="contentFooter">
+            <p><script>StrPrint(strs, "clickNextToContinue")</script></p>
+            <p><script>StrPrint(strs, "clickPrevToMakeChanges")</script></p>
+            </div>          			
+        </div>
+  			<div id="step-4">
+            <h2 class="StepTitle"><script>StrPrint(strs, "womsDoms")</script></h2>	
+            <p id="slot1"><script>StrPrint(strs, "slot")</script> 1: 
+            <INPUT TYPE="radio" VALUE="wom" name="cardTypeSlot1" id="wom1" checked> WOM 
+            <INPUT TYPE="radio" VALUE="dom" name="cardTypeSlot1" id="dom1" disabled> DOM
+            </p>
+
+            <p id="slot2"><script>StrPrint(strs, "slot")</script> 2: 
+            <INPUT TYPE="radio" VALUE="wom" name="cardTypeSlot2" id="wom2" checked> WOM 
+            <INPUT TYPE="radio" VALUE="dom" name="cardTypeSlot2" id="dom2" disabled> DOM
+            </p>
+
+            <p id="slot3"><script>StrPrint(strs, "slot")</script> 3: 
+            <INPUT TYPE="radio" VALUE="wom" name="cardTypeSlot3" id="wom3" checked> WOM 
+            <INPUT TYPE="radio" VALUE="dom" name="cardTypeSlot3" id="dom3" disabled> DOM
+            </p>
+
+            <p id="slot4"><script>StrPrint(strs, "slot")</script> 4: 
+            <INPUT TYPE="radio" VALUE="wom" name="cardTypeSlot4" id="wom4" checked> WOM 
+            <INPUT TYPE="radio" VALUE="dom" name="cardTypeSlot4" id="dom4" disabled> DOM
+            </p>
+            <div class="contentFooter">
+            <p><script>StrPrint(strs, "clickNextToContinue")</script></p>
+            <p><script>StrPrint(strs, "clickPrevToMakeChanges")</script></p>
+            </div>          			
+        </div>
+  			<div id="step-5">
+            <h2 class="StepTitle"><script>StrPrint(strs, "selectLayout2")</script></h2>
+            <p id="layoutSelector"></p>
+            <div class="contentFooter">
+            <p><script>StrPrint(strs, "clickPrevToMakeChanges")</script></p>
+            <p><script>StrPrint(strs, "clickFinish")</script></p>
+            </div>          			
+        </div>
+  		</div>
+<!-- End SmartWizard Content -->  		
+ 		
+    </td></tr>
+</table>
+
+</form>    		
+
+</body>
+</html>

@@ -1,0 +1,46 @@
+// outputWizard.strs
+// English string catalog for MediaWall V Output Wizard.
+
+strs = new Object
+
+strs.opwiz                  = "Output Wizard"
+
+// tabs
+strs.selectModel            = "Model Number"
+strs.selectOptm             = "Output Timing"
+strs.soms                   = "SOMs and/or Empty Slots"
+strs.xoms                   = "Wall/DisplayPort Output Modules"
+strs.selectLayout           = "Select Wall Layout and View Output List"
+
+// content body - headers
+strs.modelNum               = "MediaWall V Model Number"
+strs.optm                   = "Output Timing"
+strs.howManySoms            = "How Many Switched Output Modules and/or empty slots?"
+strs.womsDoms               = "Select the output card type for each slot"
+strs.selectLayout2          = "Select the wall layout you plan to use"
+
+// content body - button labels etc.
+strs.mod500                 = "Model 500 Series (3RU chassis)"
+strs.mod550                 = "Model 550 Series (6RU chassis)"
+strs.selectSoms             = "Select the total number of SOMs and empty slots. For example:"
+strs.step3Example1          = "For a Model 500, select 0 if the system has two WOMs or DOMs; otherwise, select 1."
+strs.step3Example2          = "For a Model 550 with two WOMs or DOMs, one SOM, and one empty slot, select 2."
+strs.selectSoms             = "Select the total number of SOMs and empty slots. For example:"
+strs.slot                   = "Slot "
+
+// content footer
+strs.clickNextToContinue    = "Click Next to continue."
+strs.clickPrevToMakeChanges = "Click Previous to change your selections in previous steps."
+strs.clickFinish            = "Click Finish to see which outputs to connect to your wall displays."
+
+// button labels
+strs.startOver              = "Start Over"
+strs.next                   = "Next >"
+strs.prev                   = "< Previous"
+strs.finish                 = "Finish"
+
+// Output List window
+strs.opList                 = "Output List"
+strs.winPrint               = "Print Window"
+strs.winClose               = "Close Window"
+strs.wall                   = "WALL "
